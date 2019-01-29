@@ -11,7 +11,7 @@ spec:
   chart:
     git: ssh://git@github.com/aleclerc/flux-get-started
     ref: master
-    path: charts/ghost
+    path: charts/tenant
   values:
     tenants:
     - adam
