@@ -1,0 +1,1 @@
+{"jobID":"c1792014-6ba3-969c-a7b7-c16bdb9f5814","spec":{"type":"policy","cause":{"Message":"","User":"Adam Leclerc \u003cadam.leclerc@sonraisecurity.com\u003e"},"spec":{"demo:helmrelease/mongodb":{"add":{"automated":"true"},"remove":{}}}},"result":null}
