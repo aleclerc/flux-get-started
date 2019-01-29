@@ -1,0 +1,19 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: tenant
+  namespace: demo
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: tenant
+  chart:
+    git: ssh://git@github.com/aleclerc/flux-get-started
+    ref: master
+    path: charts/ghost
+  values:
+    tenants:
+    - adam
+    - bill
+    - candy

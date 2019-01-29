@@ -1,0 +1,29 @@
+{{- range $tenant := .Values.tenants }}
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: ghost-{{ $tenant }}
+  namespace: demo
+  annotations:
+    flux.weave.works/automated: "false"
+    flux.weave.works/tag.chart-image: glob:1.21.*
+spec:
+  releaseName: ghost-{{ $tenant }}
+  chart:
+    git: ssh://git@github.com/aleclerc/flux-get-started
+    ref: master
+    path: charts/ghost
+  values:
+    image: bitnami/ghost:1.21.5-r0
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 32Mi
+        cpu: 10m
+    serviceType: ClusterIP
+    mariadb:
+      persistence:
+        enabled: false
+{{- end }}
